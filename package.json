@@ -1,0 +1,26 @@
+{
+  "name": "cypressDemo",
+  "version": "1.0.0",
+  "description": "cypressDemo",
+  "main": "https://github.com/RunleiWang/CypressExercise.git",
+  "repository": "https://github.com/RunleiWang/CypressExercise.git",
+  "author": "<rlwang@thoughtworks.com>",
+  "license": "MIT",
+  "scripts": {
+    "open": "cypress open",
+    "lint": "eslint --fix 'cypress/**/*.js'",
+    "jest": "jest",
+    "cypress": "cypress",
+    "open:qa": "cypress open --env configFile=qa",
+    "open:test": "cypress open --env configFile=test",
+    "open:stage": "cypress open --env configFile=stage",
+    "delete:reports": "rm -fr cypress/results/*.json || true",
+    "cleanup": "yarn delete:reports",
+    "merge_reports": "mochawesome-merge --reportDir cypress/results > cypress/results/output.json",
+    "html_report": "marge cypress/results/output.json --reportDir cypress/results/html --reportTitle UI_Report",
+    "e2e_report": "yarn merge_reports; yarn html_report"
+  },
+  "dependencies": {
+    "cypress": "^3.4.1"
+  }
+}
